@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yangbo.dao.PaymentDao">
+    <select id = "queryPaymentById" resultType="entities.Payment">
+        select id,serial from payment
+        <where>
+            and id = #{id}
+        </where>
+    </select>
+
+    <insert id = "createPayment" parameterType="entities.Payment">
+        insert into payment(id,serial) values(#{id}, #{serial})
+    </insert>
+</mapper>

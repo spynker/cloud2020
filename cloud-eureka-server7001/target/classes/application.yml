@@ -1,0 +1,31 @@
+server:
+  port: 7001
+
+spring:
+  application:
+    name: cloud-eureka-server
+  datasource:
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # mysql驱动类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud2020?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: yangbo
+
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/
+
+  server:
+    #关闭自我保护机制
+    enable-self-preservation: false
+    ##清理间隔时间
+    eviction-interval-timer-in-ms: 2000
+
+
