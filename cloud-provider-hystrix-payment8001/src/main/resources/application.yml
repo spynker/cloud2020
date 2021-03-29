@@ -1,0 +1,23 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-provider-hystrix-payment
+
+logging:
+  level:
+    com.yangbo.dao: debug
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: payment8001
+    #发送心跳间隔时间
+    lease-renewal-interval-in-seconds: 2
+    #服务端最后一次收到心跳等待时间上限
+    lease-expiration-duration-in-seconds: 2
+  prefer-ip-address: true

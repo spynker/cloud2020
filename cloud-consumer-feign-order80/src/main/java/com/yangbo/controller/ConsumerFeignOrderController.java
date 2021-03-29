@@ -20,4 +20,14 @@ public class ConsumerFeignOrderController {
     public CommonResult<Payment> queryById(String id){
         return consumerFeignOrderService.queryPaymentById(id);
     }
+
+    @GetMapping("/payment_ok")
+    public CommonResult paymentOk(Integer id){
+        return new CommonResult(consumerFeignOrderService.paymentOk(id));
+    }
+
+    @GetMapping("/payment_timeout")
+    public CommonResult paymentTimeout(Integer id){
+        return new CommonResult(consumerFeignOrderService.paymentTimeout(id));
+    }
 }

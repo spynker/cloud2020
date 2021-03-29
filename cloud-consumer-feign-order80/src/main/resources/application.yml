@@ -9,13 +9,17 @@ eureka:
   client:
     register-with-eureka: false
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+#      集群测试
+#      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+#      单机测试
+      defaultZone: http://eureka7001.com:7001/eureka/
   instance:
     hostname: cloud-order-service
 
-ribbon:
-  ReadTimeout: 5000
-  ConnectTimeout: 5000
+#限制feign超时时间
+#ribbon:
+#  ReadTimeout: 5000 读取返回结果超时设置
+#  ConnectTimeout: 5000 连接超时设置
 logging:
   level:
     #feign以什么级别监控哪个接口
